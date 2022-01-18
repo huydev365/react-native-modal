@@ -18,8 +18,8 @@ export const initializeAnimations = () => {
     slideInUp: makeSlideTranslation('translateY', height, 0),
     slideInUpFromNav: makeSlideTranslation(
       'translateY',
-      height - navHeight,
-      navHeight,
+      -navHeight,
+      -navHeight - 12,
     ),
     slideInLeft: makeSlideTranslation('translateX', -width, 0),
     slideInRight: makeSlideTranslation('translateX', width, 0),

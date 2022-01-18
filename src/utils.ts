@@ -11,17 +11,21 @@ function isIphoneXorAbove() {
     !Platform.isPad &&
     (Dimensions.get('window').height > 800 ||
       Dimensions.get('window').width > 800)
-  )
+  );
 }
 
 export const initializeAnimations = () => {
   // Since react-native-animatable applies by default a margin of 100 to its
   // sliding animation, we reset them here overriding the margin to 0.
-  const navHeight = Platform.OS === 'ios' && isIphoneXorAbove() ? 95 : 61
+  const navHeight = Platform.OS === 'ios' && isIphoneXorAbove() ? 95 : 61;
   const animationDefinitions: Record<string, CustomAnimation> = {
     slideInDown: makeSlideTranslation('translateY', -height, 0),
     slideInUp: makeSlideTranslation('translateY', height, 0),
-    slideInUpFromNav: makeSlideTranslation('translateY', height - navHeight, navHeight),
+    slideInUpFromNav: makeSlideTranslation(
+      'translateY',
+      -navHeight,
+      -navHeight - 12,
+    ),
     slideInLeft: makeSlideTranslation('translateX', -width, 0),
     slideInRight: makeSlideTranslation('translateX', width, 0),
     slideOutDown: makeSlideTranslation('translateY', 0, height),
